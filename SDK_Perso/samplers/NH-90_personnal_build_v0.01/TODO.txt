@@ -1,0 +1,10 @@
+#TO DO
+
+Faire un template de système.
+
+Faire les éléments :
+  - Fuel,
+  - Moteur,
+  - MFD,
+  - HUD,
+  - ...
