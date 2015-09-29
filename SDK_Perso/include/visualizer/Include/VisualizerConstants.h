@@ -1,0 +1,6 @@
+#ifndef VISUALIZER_CONSTANTS_H
+#define VISUALIZER_CONSTANTS_H
+
+#define MAX_MFD_COUNT 4
+
+#endif

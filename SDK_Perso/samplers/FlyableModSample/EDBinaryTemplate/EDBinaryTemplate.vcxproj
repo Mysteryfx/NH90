@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{35A357AF-2C25-473C-98B4-9E84AE27BED9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>cockpit</RootNamespace>
+    <ProjectName>FlyableModSample</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(DXSDK_DIR)\Include;$(EDSDK)\sdk\inc;$(EDSDK)\sdk\inc\win32;$(EDSDK)\include;$(EDSDK)\include\Cockpit\Base\Header;$(EDSDK)\include\Core\inc;$(EDSDK)/include/Math/Include;$(EDSDK)/include/Math/Include/GraphMath;$(EDSDK)/include/Inter/Include;$(EDSDK)/include/World/Include;$(EDSDK)/include/GraphicsXP/Include;$(EDSDK)/include/edObjects/Include;$(EDSDK)/include/edTerrain/Include;$(EDSDK)/include/osgUtils/inc;$(EDSDK)/include/WorldGeneral/Include;$(EDSDK)/include/wRadio/Main/Include;$(EDSDK)/include/UserInterface/Include;$(EDSDK)/include/EagleFM/FMBase/Header;$(EDSDK)/include/Visualizer/Include;$(EDSDK)/include/Effects/Interface;$(EDSDK)/include/Space/Include;$(EDSDK)/include/Weapons/Include;$(EDSDK)/include/Weapons/Ammunition/Include;$(EDSDK)/include/WeaponsBase/Include;$(EDSDK)/include/Input/Include;$(EDSDK)/include/DXRenderer/Include;$(EDSDK)/include/Transport/Include;$(EDSDK)/include/Terrain/Include;$(EDSDK)/include/Flight/Include;$(EDSDK)/include/blocksim/includes/simulation;$(EDSDK)/include/Weather/Include;$(EDSDK)/include/offshore/Include/;$(EDSDK)/include/LuaModules/dxgui/gui_lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(EDSDK)\sdk\lib\x86;$(EDSDK)\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(DXSDK_DIR)\Include;$(EDSDK)\sdk\inc;$(EDSDK)\sdk\inc\win32;$(EDSDK)\include;$(EDSDK)\include\Cockpit\Base\Header;$(EDSDK)\include\Core\inc;$(EDSDK)/include/Math/Include;$(EDSDK)/include/Math/Include/GraphMath;$(EDSDK)/include/Inter/Include;$(EDSDK)/include/World/Include;$(EDSDK)/include/GraphicsXP/Include;$(EDSDK)/include/edObjects/Include;$(EDSDK)/include/edTerrain/Include;$(EDSDK)/include/osgUtils/inc;$(EDSDK)/include/WorldGeneral/Include;$(EDSDK)/include/wRadio/Main/Include;$(EDSDK)/include/UserInterface/Include;$(EDSDK)/include/EagleFM/FMBase/Header;$(EDSDK)/include/Visualizer/Include;$(EDSDK)/include/Effects/Interface;$(EDSDK)/include/Space/Include;$(EDSDK)/include/Weapons/Include;$(EDSDK)/include/Weapons/Ammunition/Include;$(EDSDK)/include/WeaponsBase/Include;$(EDSDK)/include/Input/Include;$(EDSDK)/include/DXRenderer/Include;$(EDSDK)/include/Transport/Include;$(EDSDK)/include/Terrain/Include;$(EDSDK)/include/Flight/Include;$(EDSDK)/include/blocksim/includes/simulation;$(EDSDK)/include/Weather/Include;$(EDSDK)/include/offshore/Include/;$(EDSDK)/include/LuaModules/dxgui/gui_lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(EDSDK)\sdk\lib\x86_64;$(EDSDK)\lib\x86_64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\Visual_WorkSpace\MFXEDSDK\include\ed_api\public;$(DXSDK_DIR)\Include;D:\Visual_WorkSpace\MFXEDSDK\sdk\inc;D:\Visual_WorkSpace\MFXEDSDK\sdk\inc\win32;D:\Visual_WorkSpace\MFXEDSDK\include;D:\Visual_WorkSpace\MFXEDSDK\include\Cockpit\Base\Header;D:\Visual_WorkSpace\MFXEDSDK\include\Core\inc;D:\Visual_WorkSpace\MFXEDSDK\include\math\Include;D:\Visual_WorkSpace\MFXEDSDK\include\math\Include\GraphMath;D:\Visual_WorkSpace\MFXEDSDK\include\inter\Include;D:\Visual_WorkSpace\MFXEDSDK\include\World\Include;D:\Visual_WorkSpace\MFXEDSDK\include\graphicsxp\Include;D:\Visual_WorkSpace\MFXEDSDK\include\edobjects\Include;D:\Visual_WorkSpace\MFXEDSDK\include\edterrain3\edterrain\Include;D:\Visual_WorkSpace\MFXEDSDK\include\osgUtils\inc;D:\Visual_WorkSpace\MFXEDSDK\include\worldgeneral\Include;D:\Visual_WorkSpace\MFXEDSDK\include\wradio\Main\Include;D:\Visual_WorkSpace\MFXEDSDK\include\UserInterface\Include;D:\Visual_WorkSpace\MFXEDSDK\include\EagleFM\FMBase\Header;D:\Visual_WorkSpace\MFXEDSDK\include\visualizer\Include;D:\Visual_WorkSpace\MFXEDSDK\include\effects\Interface;D:\Visual_WorkSpace\MFXEDSDK\include\Space\Include;D:\Visual_WorkSpace\MFXEDSDK\include\weapons\Include;D:\Visual_WorkSpace\MFXEDSDK\include\weapons\Ammunition\Include;D:\Visual_WorkSpace\MFXEDSDK\include\WeaponsBase\Include;D:\Visual_WorkSpace\MFXEDSDK\include\Input\Include;D:\Visual_WorkSpace\MFXEDSDK\include\dxrenderer\Include;D:\Visual_WorkSpace\MFXEDSDK\include\transport\Include;D:\Visual_WorkSpace\MFXEDSDK\include\terrain\Include;D:\Visual_WorkSpace\MFXEDSDK\include\flight\Include;D:\Visual_WorkSpace\MFXEDSDK\include\blocksim\includes\simulation;D:\Visual_WorkSpace\MFXEDSDK\include\weather\Include;D:\Visual_WorkSpace\MFXEDSDK\include\offshore\Include\;$(EDSDK)/include/LuaModules/dxgui/gui_lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(EDSDK)\sdk\lib\x86;$(EDSDK)\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\Visual_WorkSpace\MFXEDSDK\include\ed_api\public;$(DXSDK_DIR)\Include;D:\Visual_WorkSpace\MFXEDSDK\sdk\inc;D:\Visual_WorkSpace\MFXEDSDK\sdk\inc\win32;D:\Visual_WorkSpace\MFXEDSDK\include;D:\Visual_WorkSpace\MFXEDSDK\include\Cockpit\Base\Header;D:\Visual_WorkSpace\MFXEDSDK\include\Core\inc;D:\Visual_WorkSpace\MFXEDSDK\include\math\Include;D:\Visual_WorkSpace\MFXEDSDK\include\math\Include\GraphMath;D:\Visual_WorkSpace\MFXEDSDK\include\inter\Include;D:\Visual_WorkSpace\MFXEDSDK\include\World\Include;D:\Visual_WorkSpace\MFXEDSDK\include\graphicsxp\Include;D:\Visual_WorkSpace\MFXEDSDK\include\edobjects\Include;D:\Visual_WorkSpace\MFXEDSDK\include\edterrain3\edterrain\Include;D:\Visual_WorkSpace\MFXEDSDK\include\osgUtils\inc;D:\Visual_WorkSpace\MFXEDSDK\include\worldgeneral\Include;D:\Visual_WorkSpace\MFXEDSDK\include\wradio\Main\Include;D:\Visual_WorkSpace\MFXEDSDK\include\UserInterface\Include;D:\Visual_WorkSpace\MFXEDSDK\include\EagleFM\FMBase\Header;D:\Visual_WorkSpace\MFXEDSDK\include\visualizer\Include;D:\Visual_WorkSpace\MFXEDSDK\include\effects\Interface;D:\Visual_WorkSpace\MFXEDSDK\include\Space\Include;D:\Visual_WorkSpace\MFXEDSDK\include\weapons\Include;D:\Visual_WorkSpace\MFXEDSDK\include\weapons\Ammunition\Include;D:\Visual_WorkSpace\MFXEDSDK\include\WeaponsBase\Include;D:\Visual_WorkSpace\MFXEDSDK\include\Input\Include;D:\Visual_WorkSpace\MFXEDSDK\include\dxrenderer\Include;D:\Visual_WorkSpace\MFXEDSDK\include\transport\Include;D:\Visual_WorkSpace\MFXEDSDK\include\terrain\Include;D:\Visual_WorkSpace\MFXEDSDK\include\flight\Include;D:\Visual_WorkSpace\MFXEDSDK\include\blocksim\includes\simulation;D:\Visual_WorkSpace\MFXEDSDK\include\weather\Include;D:\Visual_WorkSpace\MFXEDSDK\include\offshore\Include\;$(EDSDK)/include/LuaModules/dxgui/gui_lib;$(IncludePath)</IncludePath>
+    <LibraryPath>$(EDSDK)\sdk\lib\x86_64;$(EDSDK)\lib\x86_64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_USE_MATH_DEFINES;NOMINMAX;_HAS_ITERATOR_DEBUGGING=0;_SECURE_SCL=0;USE_NEDMALLOC_STL_ALLOCATOR;ED_MODULE_NAME="CLIENT";_DEBUG;_WINDOWS;_USRDLL;EDBINARYTEMPLATE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)\Include;$(EDSDK)\sdk\inc;$(EDSDK)\sdk\inc\win32;$(EDSDK)\include;$(EDSDK)\include\Cockpit\Base\Header;$(EDSDK)\include\Core\inc;$(EDSDK)/include/Math/Include;$(EDSDK)/include/Math/Include/GraphMath;$(EDSDK)/include/Inter/Include;$(EDSDK)/include/World/Include;$(EDSDK)/include/GraphicsXP/Include;$(EDSDK)/include/edObjects/Include;$(EDSDK)/include/edTerrain/Include;$(EDSDK)/include/osgUtils/inc;$(EDSDK)/include/WorldGeneral/Include;$(EDSDK)/include/wRadio/Main/Include;$(EDSDK)/include/UserInterface/Include;$(EDSDK)/include/EagleFM/FMBase/Header;$(EDSDK)/include/Visualizer/Include;$(EDSDK)/include/Effects/Interface;$(EDSDK)/include/Space/Include;$(EDSDK)/include/Weapons/Include;$(EDSDK)/include/Weapons/Ammunition/Include;$(EDSDK)/include/WeaponsBase/Include;$(EDSDK)/include/Input/Include;$(EDSDK)/include/DXRenderer/Include;$(EDSDK)/include/Transport/Include;$(EDSDK)/include/Terrain/Include;$(EDSDK)/include/Flight/Include;$(EDSDK)/include/blocksim/includes/simulation;$(EDSDK)/include/Weather/Include;$(EDSDK)/include/offshore/Include/;$(EDSDK)/include/LuaModules/dxgui/gui_lib;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>edCore.lib;edMath.lib;edObjects.lib;edTerrain.lib;Terrain.lib;World.lib;WorldGeneral.lib;Inter.lib;Space.lib;Flight.lib;FMBase.lib;GraphicsXP.lib;DXRenderer.lib;wRadio.lib;UserInterface.lib;Visualizer.lib;Input.lib;Transport.lib;Weapons.lib;WeaponsBase.lib;lua.lib;ole32.lib;Weather.lib;ws2_32.lib;CockpitBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_USE_MATH_DEFINES;NOMINMAX;_HAS_ITERATOR_DEBUGGING=0;_SECURE_SCL=0;USE_NEDMALLOC_STL_ALLOCATOR;ED_MODULE_NAME="CLIENT";_DEBUG;_WINDOWS;_USRDLL;EDBINARYTEMPLATE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)\Include;$(EDSDK)\sdk\inc;$(EDSDK)\sdk\inc\win32;$(EDSDK)\include;$(EDSDK)\include\Cockpit\Base\Header;$(EDSDK)\include\Core\inc;$(EDSDK)/include/Math/Include;$(EDSDK)/include/Math/Include/GraphMath;$(EDSDK)/include/Inter/Include;$(EDSDK)/include/World/Include;$(EDSDK)/include/GraphicsXP/Include;$(EDSDK)/include/edObjects/Include;$(EDSDK)/include/edTerrain/Include;$(EDSDK)/include/osgUtils/inc;$(EDSDK)/include/WorldGeneral/Include;$(EDSDK)/include/wRadio/Main/Include;$(EDSDK)/include/UserInterface/Include;$(EDSDK)/include/EagleFM/FMBase/Header;$(EDSDK)/include/Visualizer/Include;$(EDSDK)/include/Effects/Interface;$(EDSDK)/include/Space/Include;$(EDSDK)/include/Weapons/Include;$(EDSDK)/include/Weapons/Ammunition/Include;$(EDSDK)/include/WeaponsBase/Include;$(EDSDK)/include/Input/Include;$(EDSDK)/include/DXRenderer/Include;$(EDSDK)/include/Transport/Include;$(EDSDK)/include/Terrain/Include;$(EDSDK)/include/Flight/Include;$(EDSDK)/include/blocksim/includes/simulation;$(EDSDK)/include/Weather/Include;$(EDSDK)/include/offshore/Include/;$(EDSDK)/include/LuaModules/dxgui/gui_lib;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>edCore.lib;edMath.lib;edObjects.lib;edTerrain.lib;Terrain.lib;World.lib;WorldGeneral.lib;Inter.lib;Space.lib;Flight.lib;FMBase.lib;GraphicsXP.lib;DXRenderer.lib;wRadio.lib;UserInterface.lib;Visualizer.lib;Input.lib;Transport.lib;Weapons.lib;WeaponsBase.lib;lua.lib;ole32.lib;Weather.lib;ws2_32.lib;CockpitBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_USE_MATH_DEFINES;NOMINMAX;_HAS_ITERATOR_DEBUGGING=0;_SECURE_SCL=0;USE_NEDMALLOC_STL_ALLOCATOR;ED_MODULE_NAME="CLIENT";NDEBUG;_WINDOWS;_USRDLL;EDBINARYTEMPLATE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>edCore.lib;edMath.lib;edObjects.lib;edTerrain.lib;Terrain.lib;World.lib;WorldGeneral.lib;Inter.lib;Space.lib;Flight.lib;FMBase.lib;GraphicsXP.lib;DXRenderer.lib;wRadio.lib;UserInterface.lib;Visualizer.lib;Input.lib;Transport.lib;Weapons.lib;WeaponsBase.lib;lua.lib;ole32.lib;Weather.lib;ws2_32.lib;CockpitBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Visual_WorkSpace\MFXEDSDK\lib\x86_64;D:\Visual_WorkSpace\MFXEDSDK\sdk\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_USE_MATH_DEFINES;NOMINMAX;_HAS_ITERATOR_DEBUGGING=0;_SECURE_SCL=0;USE_NEDMALLOC_STL_ALLOCATOR;ED_MODULE_NAME="CLIENT";NDEBUG;_WINDOWS;_USRDLL;EDBINARYTEMPLATE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>edCore.lib;edMath.lib;edObjects.lib;edTerrain.lib;Terrain.lib;World.lib;WorldGeneral.lib;Inter.lib;Space.lib;Flight.lib;FMBase.lib;GraphicsXP.lib;DXRenderer.lib;wRadio.lib;UserInterface.lib;Visualizer.lib;Input.lib;Transport.lib;Weapons.lib;WeaponsBase.lib;lua.lib;ole32.lib;Weather.lib;ws2_32.lib;CockpitBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Visual_WorkSpace\MFXEDSDK\lib\x86_64;D:\Visual_WorkSpace\MFXEDSDK\sdk\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="avSampleSystem.h" />
+    <ClInclude Include="debuggueur.h" />
+    <ClInclude Include="HUD.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Utilitaire.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="avSampleSystem.cpp" />
+    <ClCompile Include="debuggueur.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utilitaire.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

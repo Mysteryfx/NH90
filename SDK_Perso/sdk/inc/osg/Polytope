@@ -1,0 +1,343 @@
+/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2006 Robert Osfield 
+ *
+ * This library is open source and may be redistributed and/or modified under  
+ * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 
+ * (at your option) any later version.  The full license is in LICENSE file
+ * included with this distribution, and on the openscenegraph.org website.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ * OpenSceneGraph Public License for more details.
+*/
+
+#ifndef OSG_POLYTOPE
+#define OSG_POLYTOPE 1
+
+#include <osg/Plane>
+#include <osg/fast_back_stack>
+#include <assert.h>
+
+namespace osg {
+
+
+/** A Polytope class for representing convex clipping volumes made up of a set of planes.
+  * When adding planes, their normals should point inwards (into the volume)
+  *	Modified not to allocate memory if possible */
+class Polytope
+{
+
+    public:
+
+		static const int MAX_PLANE_COUNT = 6;
+		static const int MAX_POINT_COUNT = 1;
+
+        inline Polytope()
+		{
+			_planeCount = _referenceVertexCount = 0;
+		}
+
+        inline Polytope(const Polytope& cv) : 
+			_planeCount(cv._planeCount),
+			_referenceVertexCount(cv._referenceVertexCount)
+		{
+			for(int i=0; i<_planeCount; ++i)
+				_planeList[i] = cv._planeList[i];
+			for(int i=0; i<_referenceVertexCount; ++i)
+				_referenceVertexList[i] = cv._referenceVertexList[i];
+		}
+
+        inline Polytope(const Plane *planes, int count)
+		{
+            assert(count <= MAX_PLANE_COUNT);
+			_referenceVertexCount = 0;
+			_planeCount = count;
+			for(int i=0; i<count; ++i)
+				_planeList[i] = planes[i];
+		}
+
+        inline ~Polytope() {}
+
+        inline void clear() { _planeCount = 0; }
+
+        inline Polytope& operator = (const Polytope& cv)
+        {
+			if (&cv==this) return *this;
+			_planeCount = cv._planeCount;
+			_referenceVertexCount = cv._referenceVertexCount;
+			for(int i=0; i<_planeCount; ++i)
+				_planeList[i] = cv._planeList[i];
+			for(int i=0; i<_referenceVertexCount; ++i)
+				_referenceVertexList[i] = cv._referenceVertexList[i];
+			return *this;
+        }
+
+        /** Create a Polytope which is a cube, centered at 0,0,0, with sides of 2 units.*/
+        void setToUnitFrustum(bool withNear=true, bool withFar=true)
+        {
+            _planeCount = 0;
+            _planeList[_planeCount++].set(1.0f,0.0f,0.0f,1.0f); // left plane.
+            _planeList[_planeCount++].set(-1.0f,0.0f,0.0f,1.0f); // right plane.
+            _planeList[_planeCount++].set(0.0f,1.0f,0.0f,1.0f); // bottom plane.
+            _planeList[_planeCount++].set(0.0f,-1.0f,0.0f,1.0f); // top plane.
+            if (withNear) _planeList[_planeCount++].set(0.0f,0.0f,1.0f,1.0f); // near plane
+            if (withFar) _planeList[_planeCount++].set(0.0f,0.0f,-1.0f,1.0f); // far plane
+        }
+
+        inline void setAndTransformProvidingInverse(const Polytope& pt, const Plane::Matrix_type& matrix)
+        {
+            _referenceVertexCount = pt._referenceVertexCount;
+			for(int i=0; i<_referenceVertexCount; ++i)
+				_referenceVertexList[i] = pt._referenceVertexList[i];
+
+            _planeCount = pt._planeCount;
+			for(int i=0; i<_planeCount; ++i)
+            {
+                _planeList[i] = pt._planeList[i];
+                _planeList[i].transformProvidingInverse(matrix);
+            }
+        }
+
+        inline void set(const Plane *pl, int count)
+		{
+            assert(count <= MAX_PLANE_COUNT);
+			_planeCount = count;
+			for(int i=0; i<_planeCount; ++i)
+				_planeList[i] = pl[i];
+		}
+
+        inline void add(const osg::Plane& pl)
+		{
+            assert(_planeCount < MAX_PLANE_COUNT);
+			_planeList[_planeCount++] = pl;
+		}
+
+        /** flip/reverse the orientation of all the planes.*/
+        inline void flip()
+        {
+            for(int i=0; i<_planeCount; ++i)
+            {
+                _planeList[i].flip();
+            }
+        }
+
+        inline int getPlaneCount() const { return _planeCount; }
+
+        inline Plane* getPlaneList() { return _planeList; }
+
+        inline const Plane* getPlaneList() const { return _planeList; }
+
+        inline void setReferenceVertexList(const Plane::Vec3_type* vertices, int count)
+		{
+            assert(count <= MAX_POINT_COUNT);
+			_referenceVertexCount = count;
+			for(int i=0; i<_referenceVertexCount; ++i)
+				_referenceVertexList[i] = vertices[i];
+		}
+
+		inline int getReferenceVertexCount() { return _referenceVertexCount; }
+
+        inline Plane::Vec3_type* getReferenceVertexList() { return _referenceVertexList; }
+        
+        inline const Plane::Vec3_type* getReferenceVertexList() const { return _referenceVertexList; }
+
+        /** Check whether a vertex is contained within clipping set.*/
+        inline bool contains(const Plane::Vec3_type& v) const
+        {
+            for(int i=0; i<_planeCount; ++i)
+            {
+                if (_planeList[i].distance(v)<0.0f)
+                    return false;
+            }
+            return true;
+        }
+
+        /** Check whether any part of vertex list is contained within clipping set.*/
+        inline bool contains(const std::vector<Plane::Vec3_type>& vertices) const
+        {
+            for(std::vector<typename Plane::Vec3_type>::const_iterator vitr = vertices.begin();
+                vitr != vertices.end();
+                ++vitr)
+            {
+                const Plane::Vec3_type& v = *vitr;
+                bool outside = false;
+                for(int i=0; i<_planeCount; ++i)
+                {
+                    if (_planeList[i].distance(v)<0.0f)
+                        outside = true;
+                }
+                
+                if (!outside)
+                    return true;
+            }
+            return false;
+        }
+
+        /** Check whether any part of a bounding sphere is contained within clipping set.
+            Using a mask to determine which planes should be used for the check, and
+            modifying the mask to turn off planes which wouldn't contribute to clipping
+            of any internal objects.  This feature is used in osgUtil::CullVisitor
+            to prevent redundant plane checking.*/
+        inline bool contains(const osg::BoundingSphere& bs) const
+        {
+            for(int i=0; i<_planeCount; ++i)
+            {
+                int res = _planeList[i].intersect(bs);
+                if (res<0)
+                    return false; // outside clipping set.
+            }
+            return true;
+        }
+        
+        /** Check whether any part of a bounding box is contained within clipping set.
+            Using a mask to determine which planes should be used for the check, and
+            modifying the mask to turn off planes which wouldn't contribute to clipping
+            of any internal objects.  This feature is used in osgUtil::CullVisitor
+            to prevent redundant plane checking.*/
+        inline bool contains(const osg::BoundingBox& bb) const
+        {
+            for(int i=0; i<_planeCount; ++i)
+            {
+                int res = _planeList[i].intersect(bb);
+                if (res<0)
+                    return false; // outside clipping set.
+            }
+            return true;
+        }
+
+        /** Check whether all of vertex list is contained with clipping set.*/
+        inline bool containsAllOf(const std::vector<Plane::Vec3_type>& vertices) const
+        {
+            for(int i=0; i<_planeCount; ++i)
+            {
+                int res = _planeList[i].intersect(vertices);
+                if (res<1)
+                    return false;  // intersects, or is below plane.
+            }
+            return true;
+        }
+
+        /** Check whether the entire bounding sphere is contained within clipping set.*/
+        inline bool containsAllOf(const osg::BoundingSphere& bs) const
+        {
+            for(int i=0; i<_planeCount; ++i)
+            {
+                int res = _planeList[i].intersect(bs);
+                if (res<1)
+                    return false;  // intersects, or is below plane.
+            }
+            return true;
+        }
+        
+        /** Check whether the entire bounding box is contained within clipping set.*/
+        inline bool containsAllOf(const osg::BoundingBox& bb) const
+        {
+            for(int i=0; i<_planeCount; ++i)
+            {
+                int res = _planeList[i].intersect(bb);
+                if (res<1)
+                    return false;  // intersects, or is below plane.
+            }
+            return true;
+        }
+
+		/** Returns 1 if the bb is inside frustum, return 0 if the bb intersects frustum, return -1 if the bb is completely outside frustum.*/
+		inline int containsVerb(const osg::BoundingBox& bb) const
+		{
+			int result(1);
+
+            for(int i=0; i<_planeCount; ++i)
+            {
+                int res = _planeList[i].intersect(bb);
+				switch(res){
+					case 0:
+						result=0;
+					    break;
+					case -1:
+						return -1;
+				}
+            }
+            return result;
+		}
+
+		/** Returns 1 if the bs is inside frustum, return 0 if the bs intersects frustum, return -1 if the bs is completely outside frustum.*/
+		inline int containsVerb(const osg::BoundingSphere& bs) const
+		{
+			int result(1);
+
+            for(int i=0; i<_planeCount; ++i)
+            {
+                int res = _planeList[i].intersect(bs);
+				switch(res){
+					case 0:
+						result=0;
+    					break;
+					case -1:
+						return -1;
+				}
+            }
+            return result;
+		}
+        
+        /** Transform the clipping set by matrix.  Note, this operations carries out
+          * the calculation of the inverse of the matrix since a plane must 
+          * be multiplied by the inverse transposed to transform it. This
+          * makes this operation expensive.  If the inverse has been already
+          * calculated elsewhere then use transformProvidingInverse() instead.
+          * See http://www.worldserver.com/turk/computergraphics/NormalTransformations.pdf*/
+        inline void transform(const Plane::Matrix_type& matrix)
+        {
+            Plane::Matrix_type inverse;
+            inverse.invert(matrix);
+            transformProvidingInverse(inverse);
+        }
+        
+        /** Transform the clipping set by provide a pre inverted matrix.
+          * see transform for details. */
+        inline void transformProvidingInverse(const Plane::Matrix_type& matrix)
+        {
+            for(int i=0; i<_planeCount; ++i)
+                _planeList[i].transformProvidingInverse(matrix);
+        }
+        
+    protected:
+
+        Plane			_planeList[MAX_PLANE_COUNT];
+        Plane::Vec3_type			_referenceVertexList[MAX_POINT_COUNT];
+		int				_planeCount;
+		int				_referenceVertexCount;
+
+};
+
+}    // end of namespace
+
+// streaming operator
+template <class S>
+S& operator >>(S& stream, osg::Polytope &p)
+{
+    // planes
+    osg::Plane planes[osg::Polytope::MAX_PLANE_COUNT];
+    int pcount = p.getPlaneCount();
+    for (int i = 0; i < pcount; ++i)
+        planes[i] = p.getPlaneList()[i];
+
+    stream >> pcount;
+    p.set(planes, pcount);
+    for (int i = 0; i < pcount; ++i)
+        stream >> p.getPlaneList()[i];
+
+    // verts
+    osg::Plane::Vec3_type verts[osg::Polytope::MAX_POINT_COUNT];
+    int vcount = p.getReferenceVertexCount();
+    for (int i = 0; i < vcount; ++i)
+        verts[i] = p.getReferenceVertexList()[i];
+
+    stream >> vcount;
+    p.setReferenceVertexList(verts, vcount);
+    for (int i = 0; i < vcount; ++i)
+        stream >> p.getReferenceVertexList()[i];
+
+    return stream;
+}
+
+#endif 

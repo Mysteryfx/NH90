@@ -1,0 +1,96 @@
+/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2006 Robert Osfield 
+ * Copyright (C) 2003-2005 3Dlabs Inc. Ltd.
+ *
+ * This application is open source and may be redistributed and/or modified   
+ * freely and without restriction, both in commericial and non commericial
+ * applications, as long as this copyright notice is maintained.
+ * 
+ * This application is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+
+/* file:   include/osg/Uniform
+ * author: Mike Weiblen 2006-05-15
+*/
+
+#ifndef OSG_MATRIX_3
+#define OSG_MATRIX_3 1
+
+#include <cmath>
+
+#include "osg/Export"
+
+namespace osg {
+
+class Matrix3
+{
+    public:
+		typedef float value_type;
+        Matrix3() { makeIdentity(); }
+        Matrix3( const Matrix3& mat ) { set(mat.ptr()); }
+        Matrix3( float a00, float a01, float a02,
+                 float a10, float a11, float a12,
+                 float a20, float a21, float a22 )
+        {
+            set( a00, a01, a02, a10, a11, a12, a20, a21, a22 );
+        }
+        ~Matrix3() {}
+        float& operator()(int row, int col) { return _mat[row][col]; }
+        float operator()(int row, int col) const { return _mat[row][col]; }
+
+        Matrix3& operator = (const Matrix3& rhs)
+        {
+            if( &rhs == this ) return *this;
+            set(rhs.ptr());
+            return *this;
+        }
+
+        void set(const Matrix3& rhs) { set(rhs.ptr()); }
+
+        void set(float const * const ptr)
+        {
+            float* local_ptr = (float*)_mat;
+            for(int i=0;i<9;++i) local_ptr[i]=ptr[i];
+        }
+
+        void set(float a00, float a01, float a02,
+                 float a10, float a11, float a12,
+                 float a20, float a21, float a22 )
+         {
+             _mat[0][0]=a00; _mat[0][1]=a01; _mat[0][2]=a02;
+             _mat[1][0]=a10; _mat[1][1]=a11; _mat[1][2]=a12;
+             _mat[2][0]=a20; _mat[2][1]=a21; _mat[2][2]=a22;
+         }
+
+        float* ptr() { return (float*)_mat; }
+        const float* ptr() const { return (const float*)_mat; }
+
+        float& operator [] (int i) {return ptr()[i];}
+        float operator [] (int i) const {return ptr()[i];}
+
+        void makeIdentity() { set( 1, 0, 0, 0, 1, 0, 0, 0, 1 ); }
+		/// Ortho normalize matrix.
+		OSG_EXPORT void orthoNormalize(const osg::Matrix3& rhs);
+
+		bool operator==(const Matrix3 &m)const{
+			for(unsigned int i=0;i<3;++i){
+				for(unsigned int j=0;j<3;++j){
+					if(std::abs(_mat[i][j]-m._mat[i][j])>1.0e-5f) return false;
+				}
+			}
+			return true;			
+		}
+		bool operator!=(const Matrix3 &m)const{
+			return !(*this==m);
+		}
+
+    protected:
+        float _mat[3][3];
+};
+
+}
+
+#endif
+
+/*EOF*/

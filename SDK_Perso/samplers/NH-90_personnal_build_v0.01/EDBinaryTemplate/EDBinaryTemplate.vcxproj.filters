@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Element.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="SystemeElectrique.cpp" />
+    <ClCompile Include="Animation_MFX.cpp">
+      <Filter>Basic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ElementDeBase_MFX.cpp">
+      <Filter>Basic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ElementElectrique_MFX.cpp">
+      <Filter>Basic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ElementMecanique_MFX.cpp">
+      <Filter>Basic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Alternateur.cpp">
+      <Filter>Electrique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Batterie.cpp">
+      <Filter>Electrique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GenerateurUrgence.cpp">
+      <Filter>Electrique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources.cpp">
+      <Filter>Electrique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SourcesExternes.cpp">
+      <Filter>Electrique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Transforedresseur.cpp">
+      <Filter>Electrique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Voyant.cpp">
+      <Filter>Electrique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="VoyantDeuxEtat.cpp">
+      <Filter>Electrique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="VoyantTroisEtat.cpp">
+      <Filter>Electrique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ElementElectriqueDeBase.cpp">
+      <Filter>Electrique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Bouton.cpp">
+      <Filter>Mecanique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BoutonDeuxPosition.cpp">
+      <Filter>Mecanique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BoutonDeuxPositionAVerrouDeSecurite.cpp">
+      <Filter>Mecanique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BoutonElectrique.cpp">
+      <Filter>Mecanique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BoutonMecanique.cpp">
+      <Filter>Mecanique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BoutonMecaniqueAVerrou.cpp">
+      <Filter>Mecanique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BoutonTroisPosition.cpp">
+      <Filter>Mecanique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="VerrouDeSecurite.cpp">
+      <Filter>Mecanique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Verrou.cpp">
+      <Filter>Mecanique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="DigitalClock.cpp">
+      <Filter>Testes</Filter>
+    </ClCompile>
+    <ClCompile Include="debuggueur.cpp">
+      <Filter>Utilitaire\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilitaire.cpp">
+      <Filter>Utilitaire\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ElementFluide_MFX.cpp">
+      <Filter>Basic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ReservoirHuile_MFX.cpp">
+      <Filter>Fluide\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Pompe_MFX.cpp">
+      <Filter>Hydraulique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ElementHydraulique_MFX.cpp">
+      <Filter>Basic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Moteur_MFX.cpp" />
+    <ClCompile Include="RobinetSOV_MFX.cpp">
+      <Filter>Hydraulique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Tuyau_MFX.cpp">
+      <Filter>Hydraulique\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemeHydraulique.cpp" />
+    <ClCompile Include="MFXDevice.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Element.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SystemeElectrique.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Animation_MFX.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementDeBase_MFX.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementElectrique_MFX.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementMecanique_MFX.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="Alternateur.h">
+      <Filter>Electrique</Filter>
+    </ClInclude>
+    <ClInclude Include="Batterie.h">
+      <Filter>Electrique</Filter>
+    </ClInclude>
+    <ClInclude Include="GenerateurUrgence.h">
+      <Filter>Electrique</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources.h">
+      <Filter>Electrique</Filter>
+    </ClInclude>
+    <ClInclude Include="SourcesExternes.h">
+      <Filter>Electrique</Filter>
+    </ClInclude>
+    <ClInclude Include="Transforedresseur.h">
+      <Filter>Electrique</Filter>
+    </ClInclude>
+    <ClInclude Include="Voyant.h">
+      <Filter>Electrique</Filter>
+    </ClInclude>
+    <ClInclude Include="VoyantDeuxEtat.h">
+      <Filter>Electrique</Filter>
+    </ClInclude>
+    <ClInclude Include="VoyantTroisEtat.h">
+      <Filter>Electrique</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementElectriqueDeBase.h">
+      <Filter>Electrique</Filter>
+    </ClInclude>
+    <ClInclude Include="Bouton.h">
+      <Filter>Mecanique</Filter>
+    </ClInclude>
+    <ClInclude Include="BoutonDeuxPosition.h">
+      <Filter>Mecanique</Filter>
+    </ClInclude>
+    <ClInclude Include="BoutonDeuxPositionAVerrouDeSecurite.h">
+      <Filter>Mecanique</Filter>
+    </ClInclude>
+    <ClInclude Include="BoutonElectrique.h">
+      <Filter>Mecanique</Filter>
+    </ClInclude>
+    <ClInclude Include="BoutonMecanique.h">
+      <Filter>Mecanique</Filter>
+    </ClInclude>
+    <ClInclude Include="BoutonMecaniqueAVerrou.h">
+      <Filter>Mecanique</Filter>
+    </ClInclude>
+    <ClInclude Include="BoutonTroisPosition.h">
+      <Filter>Mecanique</Filter>
+    </ClInclude>
+    <ClInclude Include="Verrou.h">
+      <Filter>Mecanique</Filter>
+    </ClInclude>
+    <ClInclude Include="VerrouDeSecurite.h">
+      <Filter>Mecanique</Filter>
+    </ClInclude>
+    <ClInclude Include="DigitalClock.h">
+      <Filter>Testes</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilitaire.h">
+      <Filter>Utilitaire</Filter>
+    </ClInclude>
+    <ClInclude Include="debuggueur.h">
+      <Filter>Utilitaire</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementFluide_MFX.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="ReservoirHuile_MFX.h">
+      <Filter>Fluide</Filter>
+    </ClInclude>
+    <ClInclude Include="Pompe_MFX.h">
+      <Filter>Hydraulique</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementHydraulique_MFX.h">
+      <Filter>Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="Moteur_MFX.h" />
+    <ClInclude Include="Tuyau_MFX.h">
+      <Filter>Hydraulique</Filter>
+    </ClInclude>
+    <ClInclude Include="RobinetSOV_MFX.h">
+      <Filter>Hydraulique</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemeHydraulique.h" />
+    <ClInclude Include="MFXDevice.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Basic">
+      <UniqueIdentifier>{dcf310e5-a6b6-4a76-917c-63b26f7c6368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Basic\Source">
+      <UniqueIdentifier>{93c98c05-8a47-4e58-ab42-f60ee3e8f248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Electrique">
+      <UniqueIdentifier>{5a0f5d7b-4d30-4526-aa64-f23af7d60292}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Electrique\Source">
+      <UniqueIdentifier>{53d4046f-586d-4214-9aaa-adab2614451f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mecanique">
+      <UniqueIdentifier>{b24f5185-5ad1-4f73-9e14-0fd34bbe7c65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mecanique\Source">
+      <UniqueIdentifier>{fdd90cfe-8fd1-4499-ac7d-5151029c5168}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Testes">
+      <UniqueIdentifier>{44072bbd-cade-4e60-8871-69b209671e97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilitaire">
+      <UniqueIdentifier>{a7c4db89-4c36-4a11-92df-534c4be60237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilitaire\Source">
+      <UniqueIdentifier>{db816657-fa86-4842-8a75-beab834b28c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hydraulique">
+      <UniqueIdentifier>{54dd9513-0bab-4983-9167-69e850fc2bcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fluide">
+      <UniqueIdentifier>{154d86cb-edea-478e-9307-f296d3cecfbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fluide\Source">
+      <UniqueIdentifier>{f3e60a53-ac44-4b31-bb9a-28b41acaaead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hydraulique\Source">
+      <UniqueIdentifier>{e3b7ebd3-dd42-4efe-837b-8661c538a792}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

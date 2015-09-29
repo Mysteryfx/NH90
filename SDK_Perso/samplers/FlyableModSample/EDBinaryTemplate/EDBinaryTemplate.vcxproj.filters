@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Utilitaire.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="debuggueur.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="avSampleSystem.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="avSampleSystem.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="debuggueur.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilitaire.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header">
+      <UniqueIdentifier>{79636a5f-b6c2-44b2-bf99-af37939a9a73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{604d83b1-f710-4d15-b213-51e84bc620e5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
