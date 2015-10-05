@@ -104,6 +104,7 @@
     </ClCompile>
     <ClCompile Include="SystemeHydraulique.cpp" />
     <ClCompile Include="MFXDevice.cpp" />
+    <ClCompile Include="SystemeTemplate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Element.h" />
@@ -209,6 +210,7 @@
     </ClInclude>
     <ClInclude Include="SystemeHydraulique.h" />
     <ClInclude Include="MFXDevice.h" />
+    <ClInclude Include="SystemeTemplate.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />

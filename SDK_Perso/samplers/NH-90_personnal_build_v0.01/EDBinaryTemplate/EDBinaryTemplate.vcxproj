@@ -205,6 +205,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SystemeElectrique.h" />
     <ClInclude Include="SystemeHydraulique.h" />
+    <ClInclude Include="SystemeTemplate.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Transforedresseur.h" />
     <ClInclude Include="Tuyau_MFX.h" />
@@ -265,6 +266,7 @@
     </ClCompile>
     <ClCompile Include="SystemeElectrique.cpp" />
     <ClCompile Include="SystemeHydraulique.cpp" />
+    <ClCompile Include="SystemeTemplate.cpp" />
     <ClCompile Include="Transforedresseur.cpp" />
     <ClCompile Include="Tuyau_MFX.cpp" />
     <ClCompile Include="Utilitaire.cpp" />
